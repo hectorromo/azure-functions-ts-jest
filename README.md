@@ -1,5 +1,5 @@
 # azure-functions-ts-jest
-Sample application that with integration-tests on Azure Function apps with **jest**
+Sample application that has integration-tests on Azure Function apps with **jest**
 
 ## Setup
 ### Install the app
