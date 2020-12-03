@@ -1,0 +1,26 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "jest --verbose --detectOpenHandles",
+    "test:watch": "jest --verbose ---watch --detectOpenHandles"
+  },
+  "dependencies": {
+    "mongoose": "^5.11.2",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.2-beta2",
+    "@types/jest": "^26.0.16",
+    "jest": "^26.6.3",
+    "mockingoose": "^2.13.2",
+    "stub-azure-function-context": "^2.0.0-alpha.4",
+    "ts-jest": "^26.4.4",
+    "typescript": "^3.9.7"
+  }
+}
