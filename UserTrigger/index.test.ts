@@ -25,15 +25,17 @@ describe("UserTrigger", () => {
         await User.remove({});
     })
 
+
+    // *** Init tests ***
+
     it("Should return a user", async () => {
         const context = await mockedRequestFactory(httpTrigger, { id: userId });
 
-        // expect(context.res.body).toHaveProperty("name");
         expect(context.res.body).toMatchObject({ "_id": userId, name: "Anna", email: "anna@frozen.com" });
     })
 
-    it("Should return Bad Request if no id", async () => {
-        const context = await mockedRequestFactory(httpTrigger);
+    it("Should return 400 if no id is passed.", async () => {
+        const context = await mockedRequestFactory(httpTrigger, {});
 
         expect(context.res.statusCode).toBe(400);
         expect(context.res.body).toContain("Id parameter");
