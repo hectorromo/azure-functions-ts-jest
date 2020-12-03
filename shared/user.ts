@@ -2,8 +2,14 @@
 import { mongoose } from "./connection";
 
 const User = new mongoose.Schema({
-    name: String,
-    email: String,
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
     created: { type: Date, default: Date.now },
 });
 

@@ -11,6 +11,8 @@
     "test:watch": "jest --verbose ---watch --detectOpenHandles"
   },
   "dependencies": {
+    "@types/joi": "^14.3.4",
+    "joi": "^17.3.0",
     "mongoose": "^5.11.2",
     "node-fetch": "^2.6.1"
   },

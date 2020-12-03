@@ -1,9 +1,9 @@
-import { mockedRequestFactory } from "../testing/mockingGet";
+import { mockedRequestFactory } from "../testing/mockedRequestFactory";
 import { User } from "../shared/models";
 
 import httpTrigger from "./index";
 
-describe("UserTrigger", () => {
+describe("UserGet", () => {
     const users = [
         { name: "Elsa", email: "elsa@frozen.com" },
         { name: "Olaf", email: "olaf@frozen.com" }
@@ -22,22 +22,23 @@ describe("UserTrigger", () => {
 
     afterEach(async () => {
         // Remove all inserted users after each test
-        await User.remove({});
+        // await User.remove({});
+        await User.deleteMany({})
     })
 
 
     // *** Init tests ***
 
     it("Should return a user", async () => {
-        const context = await mockedRequestFactory(httpTrigger, { id: userId });
+        const context = await mockedRequestFactory(httpTrigger, { params: { id: userId } });
 
         expect(context.res.body).toMatchObject({ "_id": userId, name: "Anna", email: "anna@frozen.com" });
-    })
+    });
 
     it("Should return 400 if no id is passed.", async () => {
-        const context = await mockedRequestFactory(httpTrigger, {});
+        const context = await mockedRequestFactory(httpTrigger, null);
 
         expect(context.res.statusCode).toBe(400);
         expect(context.res.body).toContain("Id parameter");
-    })
+    });
 })

@@ -5,10 +5,7 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
+      "methods": ["patch"]
     },
     {
       "type": "http",
@@ -16,5 +13,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/UserTrigger/index.js"
+  "scriptFile": "../dist/UserPatch/index.js"
 }
